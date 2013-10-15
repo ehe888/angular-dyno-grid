@@ -12,9 +12,10 @@ angular.module('myApp.directives', []).
 angular.module("myApp.directives", []).directive("hrLayout", [
     "$compile", "$q", "$parse", function($compile, $q, $parse) {
         return {
-            restrict: "A",
-            priority: 10001,
-            scope: true,
+            restrict: "A",    // This allows following type of directive : <div hr-layout="exp"></div>
+            priority: 10001,  // If one DOM element has multiple directives, by this value the directive is applied.
+            scope: true,      // create new scope for this directive.
+            // for more information http://docs.angularjs.org/guide/directive
             controller: [
                 "$scope", "$timeout", function($scope, $timeout) {
                     console.log('controller', $scope.params);
